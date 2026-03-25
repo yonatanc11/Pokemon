@@ -1,18 +1,35 @@
+import { useState, useEffect } from 'react';
 import { usePokemonList } from '../hooks/usePokemonList';
 import PokemonGrid from '../components/PokemonGrid';
+import SearchBar from '../components/SearchBar';
 import Loader from '../components/Loader';
 
+/**
+ * HomePage - Main landing page with search and pokemon grid
+ * Route: /
+ * Search reactively filters the full pokedex as the user types
+ */
 export default function HomePage() {
-  const { pokemon, isLoading, error, hasMore, loadMore } = usePokemonList();
+  const { pokemon,allNames, isLoading, error, hasMore, loadMore, searchPokemon, resetDisplay } = usePokemonList();
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Trigger search whenever the query or initial data changes
+  useEffect(() => {
+  if (searchQuery.trim()) {
+    searchPokemon(searchQuery);
+  } else if (allNames.length > 0) {
+    resetDisplay();
+  }
+}, [searchQuery]);
 
   if (error) return <div>{error}</div>;
 
   return (
     <div>
-      <h1>Pokedex</h1>
+      <SearchBar value={searchQuery} onChange={setSearchQuery} />
       <PokemonGrid pokemon={pokemon} />
       {isLoading && <Loader />}
-      {hasMore && !isLoading && (
+      {hasMore && !isLoading && !searchQuery.trim() && (
         <button onClick={loadMore}>Load more...</button>
       )}
     </div>

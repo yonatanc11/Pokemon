@@ -22,7 +22,7 @@ export function usePokemonDetail(id: number) {
         ]);
 
         setPokemon(detail);
-        
+
         // The API returns descriptions in many languages — find the English one
         const englishEntry = species.flavor_text_entries.find(
           (entry) => entry.language.name === 'en'
