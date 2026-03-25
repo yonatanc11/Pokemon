@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import styles from './SearchBar.module.scss';
 interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
@@ -33,32 +33,44 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
   };
 
   return (
-    <div>
-      <div>
+    <div className={styles.searchWrapper}>
+      <div className={styles.searchRow}>
         <input
+          className={styles.searchInput}
           type="text"
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onFocus={() => setShowDropdown(true)}
           placeholder="Search pokemon..."
         />
-        <button onClick={handleSearch}>Search</button>
+        <button className={styles.searchButton} onClick={handleSearch}>
+          Search
+        </button>
       </div>
 
-      {/* Recent searches dropdown — visible on focus when there are recent searches */}
+      {/* Recent searches dropdown */}
       {showDropdown && recentSearches.length > 0 && (
-        <div>
-          <div>
-            <span>RECENT SEARCHES</span>
-            <button onClick={handleClearAll}>CLEAR</button>
+        <div className={styles.dropdown}>
+          <div className={styles.dropdownHeader}>
+            <span className={styles.dropdownTitle}>Recent searches</span>
+            <button className={styles.clearButton} onClick={handleClearAll}>
+              Clear
+            </button>
           </div>
           {recentSearches.map((search) => (
-            <div key={search}>
-              {/* Clicking a recent search fills the input and triggers filtering */}
-              <span onClick={() => { onChange(search); setShowDropdown(false); }}>
+            <div className={styles.dropdownItem} key={search}>
+              <span
+                className={styles.dropdownItemText}
+                onClick={() => { onChange(search); setShowDropdown(false); }}
+              >
                 {search}
               </span>
-              <button onClick={() => handleRemoveRecent(search)}>✕</button>
+              <button
+                className={styles.dropdownItemRemove}
+                onClick={() => handleRemoveRecent(search)}
+              >
+                ✕
+              </button>
             </div>
           ))}
         </div>

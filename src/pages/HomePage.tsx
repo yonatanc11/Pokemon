@@ -3,7 +3,7 @@ import { usePokemonList } from '../hooks/usePokemonList';
 import PokemonGrid from '../components/PokemonGrid';
 import SearchBar from '../components/SearchBar';
 import Loader from '../components/Loader';
-
+import styles from './HomePage.module.scss';
 /**
  * HomePage - Main landing page with search and pokemon grid
  * Route: /
@@ -30,7 +30,11 @@ export default function HomePage() {
       <PokemonGrid pokemon={pokemon} />
       {isLoading && <Loader />}
       {hasMore && !isLoading && !searchQuery.trim() && (
-        <button onClick={loadMore}>Load more...</button>
+        <div className={styles.loadMore}>
+          <button className={styles.loadMoreButton} onClick={loadMore}>
+            Load more...
+          </button>
+        </div>
       )}
     </div>
   );

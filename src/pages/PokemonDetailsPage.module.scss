@@ -1,0 +1,137 @@
+/* ── Page container ──────────────────────────────── */
+.page {
+  padding: 20px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ── Back link ───────────────────────────────────── */
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #373299;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 20px;
+  padding: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* ── Main detail card ────────────────────────────── */
+.detailCard {
+  background-color: #f5f5f5;
+  border-radius: 9px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+  padding: 24px;
+}
+
+/* ── Card top row: #ID left, heart right ─────────── */
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.pokemonId {
+  font-size: 22px;
+  color: #373299;
+}
+
+.heartButton {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #373299;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* ── Two-column layout: left (sprite) + right (info) */
+.cardContent {
+  display: flex;
+  gap: 24px;
+}
+
+/* ── Left column: sprite, name, type badges ──────── */
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 220px;
+}
+
+.sprite {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.pokemonName {
+  font-size: 22px;
+  color: #373299;
+  margin-bottom: 12px;
+}
+
+.typeBadges {
+  display: flex;
+  gap: 8px;
+}
+
+/* ── Right column: description + stats ───────────── */
+.rightColumn {
+  flex: 1;
+}
+
+/* ── Divider between left and right ──────────────── */
+.cardContent .rightColumn {
+  border-left: 1px solid rgba(55, 50, 153, 0.2);
+  padding-left: 24px;
+}
+
+/* ── Section headings (Description, Stats) ───────── */
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: #373299;
+  margin-bottom: 8px;
+}
+
+/* ── Description text ────────────────────────────── */
+.description {
+  font-size: 14px;
+  color: #373299;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* ── Stats grid: 3 columns ───────────────────────── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 4px 24px;
+}
+
+.statItem {
+  font-size: 14px;
+  color: #373299;
+}
+
+.statTotal {
+  font-size: 14px;
+  font-weight: 500;
+  color: #373299;
+  grid-column: 3;
+  grid-row: 1 / 4;                /* Spans all 3 rows, sits on the right */
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,50 @@
+/* ── Navbar container ────────────────────────────── */
+/* Dark blue bar spanning full width, fixed height */
+.navbar {
+  display: flex;                    /* Horizontal layout: logo left, buttons right */
+  justify-content: space-between;   /* Pushes logo and buttons to opposite ends */
+  align-items: center;              /* Vertically centers everything */
+  background-color: var(--color-primary);
+  padding: 0 40px;                  /* Horizontal padding only — height comes from content */
+  height: 60px;
+}
+
+/* ── Logo ────────────────────────────────────────── */
+.logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+  cursor: pointer;
+}
+
+/* ── Nav buttons container ───────────────────────── */
+.navButtons {
+  display: flex;                    /* Keeps Home and Favorites side by side */
+  gap: 4px;                        /* Small gap between the two buttons */
+}
+
+/* ── Individual nav button ───────────────────────── */
+.navButton {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  color: white;
+  background-color: transparent;    /* Default: no background */
+  transition: background-color 0.2s; /* Smooth hover effect */
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle white overlay on hover */
+  }
+}
+
+/* ── Active tab (current page) ───────────────────── */
+.active {
+  background-color: var(--color-accent); /* Green background for the active tab */
+  color: white;
+
+  &:hover {
+    background-color: var(--color-accent); /* Stay green on hover when active */
+  }
+}

@@ -1,0 +1,21 @@
+/* ── Load more button — centered below grid ──────── */
+.loadMore {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 40px;
+}
+
+.loadMoreButton {
+  width: 210px;
+  height: 36px;
+  border: 1px solid #373299;
+  border-radius: 9px;
+  background-color: transparent;
+  color: #373299;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+
+  &:hover {
+    background-color: rgba(55, 50, 153, 0.05);   /* Subtle fill on hover */
+  }
+}

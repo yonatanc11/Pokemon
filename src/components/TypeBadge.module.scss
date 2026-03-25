@@ -1,0 +1,29 @@
+/* ── Colored type pill ───────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 20px;               /* Full pill shape */
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+}
+
+/* ── Type-specific background colors ─────────────── */
+.grass { background-color: var(--type-grass); }
+.poison { background-color: var(--type-poison); }
+.fire { background-color: var(--type-fire); }
+.water { background-color: var(--type-water); }
+.bug { background-color: var(--type-bug); }
+.normal { background-color: var(--type-normal); }
+.electric { background-color: var(--type-electric); color: #333; }  /* Dark text on yellow */
+.ground { background-color: var(--type-ground); }
+.fairy { background-color: var(--type-fairy); }
+.fighting { background-color: var(--type-fighting); }
+.psychic { background-color: var(--type-psychic); }
+.rock { background-color: var(--type-rock); }
+.ghost { background-color: var(--type-ghost); }
+.ice { background-color: var(--type-ice); color: #333; }           /* Dark text on light blue */
+.dragon { background-color: var(--type-dragon); }
+.dark { background-color: var(--type-dark); }
+.steel { background-color: var(--type-steel); color: #333; }       /* Dark text on light gray */
+.flying { background-color: var(--type-flying); }

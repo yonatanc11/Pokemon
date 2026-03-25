@@ -4,7 +4,7 @@ import { getPokemonDetail } from '../services/pokemonService';
 import type { Pokemon, PokemonDetail } from '../types/pokemon';
 import PokemonCard from '../components/PokemonCard';
 import Loader from '../components/Loader';
-
+import styles from './FavoritesPage.module.scss';
 
 export default function FavoritesPage() {
   const { favorites, removeFavorite } = useFavorites();
@@ -47,13 +47,16 @@ export default function FavoritesPage() {
   if (isLoading) return <Loader />;
 
   if (pokemonList.length === 0) {
-    return <div>No favorites yet. Go add some!</div>;
+    return (
+      <div className={styles.page}>
+        <p className={styles.empty}>No favorites yet. Go add some!</p>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <h1>Favorites</h1>
-      <div>
+    <div className={styles.page}>
+      <div className={styles.grid}>
         {pokemonList.map((p) => (
           <PokemonCard
             key={p.id}
