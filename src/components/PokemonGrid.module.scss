@@ -1,0 +1,9 @@
+/* ── 4-column responsive grid ────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* 4 equal columns */
+  gap: 20px;                               /* Space between cards */
+  padding: 20px 40px;                      /* Horizontal padding matching navbar */
+  max-width: 1200px;
+  margin: 0 auto;                          /* Center the grid */
+}

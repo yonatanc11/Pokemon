@@ -1,0 +1,123 @@
+/* ── Search bar wrapper — centered on page ───────── */
+.searchWrapper {
+  display: flex;
+  justify-content: center;
+  padding: 20px 40px;
+  position: relative;                /* Anchor for the dropdown */
+}
+
+/* ── Input + button row ──────────────────────────── */
+.searchRow {
+  display: flex;
+  align-items: center;
+}
+
+/* ── Search text input ───────────────────────────── */
+.searchInput {
+  width: 434px;
+  height: 37px;
+  border: 1px solid rgba(2, 1, 102, 0.5);   /* #020166 at 50% opacity */
+  border-radius: 9px;
+  padding: 0 12px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #373299;
+  outline: none;
+
+  &::placeholder {
+    color: rgba(55, 50, 153, 0.4);           /* Lighter version of text color */
+  }
+
+  &:focus {
+    border-color: #020166;                    /* Full opacity on focus */
+  }
+}
+
+/* ── Search button ───────────────────────────────── */
+.searchButton {
+  width: 87px;
+  height: 36px;
+  background-color: #373299;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin-left: 8px;
+
+  &:hover {
+    background-color: #2a2575;                /* Slightly darker on hover */
+  }
+}
+
+/* ── Recent searches dropdown ────────────────────── */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 434px;
+  background-color: #ffffff;
+  border: 1px solid rgba(2, 1, 102, 0.2);
+  border-radius: 9px;
+  padding: 12px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+/* ── Dropdown header (RECENT SEARCHES + CLEAR) ──── */
+.dropdownHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.dropdownTitle {
+  font-size: 12px;
+  font-weight: 500;
+  color: #373299;
+  text-transform: uppercase;
+}
+
+.clearButton {
+  font-size: 12px;
+  color: #373299;
+  background: none;
+  border: none;
+  text-transform: uppercase;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* ── Individual recent search item ───────────────── */
+.dropdownItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.dropdownItemText {
+  font-size: 14px;
+  color: #373299;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.dropdownItemRemove {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: rgba(55, 50, 153, 0.5);
+  padding: 4px;
+
+  &:hover {
+    color: #e53935;
+  }
+}

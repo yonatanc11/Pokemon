@@ -1,0 +1,59 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #333;
+}
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+
+:root {
+  --color-primary: #020166;
+  --color-accent: #94D97E;
+  --color-text: #373299;
+
+  /* Backgrounds */
+  --color-bg: #f5f5f5;
+  --color-card-bg: #ffffff;
+
+  /* Text */
+  --color-text: #373299;
+  --color-text-light: #666666;
+
+  /* Borders */
+  --color-border: #e0e0e0;
+
+  /* Pokemon type colors */
+  --type-grass: #78c850;
+  --type-poison: #a040a0;
+  --type-fire: #f08030;
+  --type-water: #6890f0;
+  --type-bug: #a8b820;
+  --type-normal: #a8a878;
+  --type-electric: #f8d030;
+  --type-ground: #e0c068;
+  --type-fairy: #ee99ac;
+  --type-fighting: #c03028;
+  --type-psychic: #f85888;
+  --type-rock: #b8a038;
+  --type-ghost: #705898;
+  --type-ice: #98d8d8;
+  --type-dragon: #7038f8;
+  --type-dark: #705848;
+  --type-steel: #b8b8d0;
+  --type-flying: #a890f0;
+}

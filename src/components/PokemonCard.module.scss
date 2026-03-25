@@ -1,0 +1,68 @@
+/* ── Card container ──────────────────────────────── */
+/* White rounded card with subtle border, clickable */
+.card {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    /* Stack: ID → sprite → name vertically */
+    align-items: center;
+    transition: box-shadow 0.2s;
+    /* Smooth hover lift effect */
+    background-color: #f5f5f5;
+
+    &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        /* Subtle shadow on hover */
+    }
+}
+
+/* ── Card header: #ID and optional remove button ── */
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    /* ID left, X button right */
+    align-items: center;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+/* ── Pokemon number (#001, #002...) ──────────────── */
+.pokemonId {
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ── Pokemon sprite image ────────────────────────── */
+.sprite {
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+    /* Keeps aspect ratio, no stretching */
+    margin: 12px 0;
+}
+
+/* ── Pokemon name below sprite ───────────────────── */
+.pokemonName {
+    font-size: 14px;
+    color: var(--color-text);
+    text-align: center;
+}
+
+/* ── Remove button (X) on favorites page ─────────── */
+.removeBtn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: var(--color-text-light);
+    padding: 4px;
+
+    &:hover {
+        color: #e53935;
+        /* Red on hover for delete action */
+    }
+}
