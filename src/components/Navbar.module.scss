@@ -1,50 +1,63 @@
-/* ── Navbar container ────────────────────────────── */
-/* Dark blue bar spanning full width, fixed height */
+
 .navbar {
-  display: flex;                    /* Horizontal layout: logo left, buttons right */
-  justify-content: space-between;   /* Pushes logo and buttons to opposite ends */
-  align-items: center;              /* Vertically centers everything */
+  display: flex;                   
+  justify-content: space-between;   
+  align-items: center;              
   background-color: var(--color-primary);
-  padding: 0 40px;                  /* Horizontal padding only — height comes from content */
-  height: 60px;
+  padding: 0 40px; 
+  
+  @media (max-width: 600px) {
+    background-color: var(--color-primary); 
+    flex-direction: column;
+    justify-content: center;       
+    padding: 16px 20px 0;  
+  }
 }
 
-/* ── Logo ────────────────────────────────────────── */
 .logo {
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  font-style: italic;
   cursor: pointer;
+  width: auto; 
+  height: auto;
+  object-fit: contain;
+  
+  @media (max-width: 600px) {
+    width: 200px; 
+    margin-bottom: 16px; 
+  }
 }
 
-/* ── Nav buttons container ───────────────────────── */
+
 .navButtons {
-  display: flex;                    /* Keeps Home and Favorites side by side */
-  gap: 4px;                        /* Small gap between the two buttons */
+  display: flex;                    
+  gap: 4px; 
+  
+  @media (max-width: 600px) {
+    justify-content: center;
+    width: 100%;
+  }                       
 }
 
-/* ── Individual nav button ───────────────────────── */
+
 .navButton {
   padding: 8px 20px;
   border: none;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 16px;
   color: white;
-  background-color: transparent;    /* Default: no background */
-  transition: background-color 0.2s; /* Smooth hover effect */
+  background-color: transparent;    
+  transition: background-color 0.2s; 
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Subtle white overlay on hover */
+    background-color: rgba(255, 255, 255, 0.1); 
   }
 }
 
-/* ── Active tab (current page) ───────────────────── */
+
 .active {
-  background-color: var(--color-accent); /* Green background for the active tab */
+  background-color: var(--color-accent); 
   color: white;
 
   &:hover {
-    background-color: var(--color-accent); /* Stay green on hover when active */
+    background-color: var(--color-accent); 
   }
 }
