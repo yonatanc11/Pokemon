@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import PokemonDetailPage from './pages/PokemonDetailsPage';
 import FavoritesPage from './pages/FavoritesPage';
+import PokemonMapPage from './pages/PokemonMapPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/pokemon/:id" element={<PokemonDetailPage />} />
+          <Route path="/pokemon/:id/map" element={<PokemonMapPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
         </Routes>
       </BrowserRouter>

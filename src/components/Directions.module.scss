@@ -1,0 +1,46 @@
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.directionsButton {
+  padding: 10px 24px;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.travelModes {
+  display: flex;
+  gap: 8px;
+}
+
+.modeButton {
+  padding: 8px 16px;
+  border: 1px solid var(--color-text);
+  border-radius: 9px;
+  background: var(--color-card-bg);
+  color: var(--color-text);
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    background-color: var(--color-bg);
+  }
+
+  &.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+}
