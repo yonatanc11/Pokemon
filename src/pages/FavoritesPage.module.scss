@@ -1,18 +1,16 @@
-/* ── Favorites page container ────────────────────── */
+
 .page {
   padding: 20px 40px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* ── Page title ──────────────────────────────────── */
 .title {
   font-size: 22px;
   color: #373299;
   margin-bottom: 20px;
 }
 
-/* ── Empty state message ─────────────────────────── */
 .empty {
   font-size: 16px;
   color: rgba(55, 50, 153, 0.5);
@@ -20,10 +18,24 @@
   padding: 60px 0;
 }
 
-/* ── Card grid — same 4 columns as HomePage ──────── */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 267px);
   gap: 20px;
   justify-content: center;
+}
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 267px);
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 12px 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }

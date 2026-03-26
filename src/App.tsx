@@ -5,11 +5,6 @@ import HomePage from './pages/HomePage';
 import PokemonDetailPage from './pages/PokemonDetailsPage';
 import FavoritesPage from './pages/FavoritesPage';
 
-/**
- * App - Root component
- * Wraps the entire app in FavoritesProvider (so all pages can access favorites)
- * Navbar is rendered outside Routes so it appears on every page
- */
 function App() {
   return (
     <FavoritesProvider>
