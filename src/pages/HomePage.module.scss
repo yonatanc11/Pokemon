@@ -1,4 +1,4 @@
-/* ── Load more button — centered below grid ──────── */
+
 .loadMore {
   display: flex;
   justify-content: center;
@@ -16,6 +16,15 @@
   font-size: 16px;
 
   &:hover {
-    background-color: rgba(55, 50, 153, 0.05);   /* Subtle fill on hover */
+    background-color: rgba(55, 50, 153, 0.05);  
+  }
+}
+@media (max-width: 600px) {
+  .loadMoreButton {
+    width: 100%;
+  }
+
+  .loadMore {
+    padding: 12px 16px;
   }
 }
