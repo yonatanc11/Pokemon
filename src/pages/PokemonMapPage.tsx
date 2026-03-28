@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { usePokemonDetail } from '../hooks/usePokemonDetail';
-import { getRandomTelAvivLocation } from '../utils/mapUtils';
+import { getRandomTelAvivLocation, MOVEO_OFFICE } from '../utils/mapUtils';
 import { APIProvider, Map, AdvancedMarker } from '@vis.gl/react-google-maps';
 import Loader from '../components/Loader';
 import styles from './PokemonMapPage.module.scss';
 import Directions from '../components/Directions';
 
 const API_KEY = import.meta.env.VITE_MAP_API_KEY as string;
-const MOVEO_OFFICE = { lat: 32.0853, lng: 34.7818 };
 
 export default function PokemonMapPage() {
   const { id } = useParams<{ id: string }>();
@@ -37,7 +36,7 @@ export default function PokemonMapPage() {
           <Map
             defaultZoom={13}
             defaultCenter={pokemonLocation}
-            mapId="DEMO_MAP_ID"
+            mapId="133fcde2aefbd00a310c214c"
             className={styles.map}
           >
             <AdvancedMarker position={pokemonLocation} title={pokemonName}>

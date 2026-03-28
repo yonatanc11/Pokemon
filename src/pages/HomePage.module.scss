@@ -19,6 +19,13 @@
     background-color: rgba(55, 50, 153, 0.05);  
   }
 }
+.noResults {
+  text-align: center;
+  color: var(--color-text);
+  font-size: 18px;
+  margin-top: 40px;
+}
+
 @media (max-width: 600px) {
   .loadMoreButton {
     width: 100%;

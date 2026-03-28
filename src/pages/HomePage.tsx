@@ -10,26 +10,33 @@ import styles from './HomePage.module.scss';
  * Search reactively filters the full pokedex as the user types
  */
 export default function HomePage() {
-  const { pokemon,allNames, isLoading, error, hasMore, loadMore, searchPokemon, resetDisplay } = usePokemonList();
-  const [searchQuery, setSearchQuery] = useState('');
+  const { pokemon, isLoading, error, hasMore, loadMore, searchPokemon, resetDisplay } = usePokemonList();
+  const [isSearching, setIsSearching] = useState(false);
 
   // Trigger search whenever the query or initial data changes
-  useEffect(() => {
-  if (searchQuery.trim()) {
-    searchPokemon(searchQuery);
-  } else if (allNames.length > 0) {
-    resetDisplay();
-  }
-}, [searchQuery]);
+  const handleSearch = (query: string) => {
+    if (query.trim()) {
+      setIsSearching(true);
+      searchPokemon(query);
+    } else {
+      setIsSearching(false);
+      resetDisplay();
+    }
+  };
+
+
 
   if (error) return <div>{error}</div>;
 
   return (
     <div>
-      <SearchBar value={searchQuery} onChange={setSearchQuery} />
+      <SearchBar onSearch={handleSearch} />
       <PokemonGrid pokemon={pokemon} />
+      {!isLoading && pokemon.length === 0 && isSearching && (
+        <p className={styles.noResults}>No Pokémon found</p>
+      )}
       {isLoading && <Loader />}
-      {hasMore && !isLoading && !searchQuery.trim() && (
+      {hasMore && !isLoading && !isSearching && (
         <div className={styles.loadMore}>
           <button className={styles.loadMoreButton} onClick={loadMore}>
             Load more...

@@ -1,27 +1,26 @@
 const TEL_AVIV_POLYGON: { lat: number; lng: number }[] = [
 
-  { lat: 32.0402, lng: 34.7506 },
+  { lat: 32.0402, lng: 34.7520 },
 
   { lat: 32.0402, lng: 34.7700 },
 
   { lat: 32.0500, lng: 34.7800 },
- 
+
   { lat: 32.0650, lng: 34.7950 },
   { lat: 32.0800, lng: 34.8000 },
   { lat: 32.0950, lng: 34.8050 },
-  
+
   { lat: 32.1100, lng: 34.8100 },
   { lat: 32.1200, lng: 34.8050 },
 
-  { lat: 32.1200, lng: 34.7700 },
+  { lat: 32.1200, lng: 34.7870 },
 
-  { lat: 32.1100, lng: 34.7600 },
+  { lat: 32.1100, lng: 34.7830 },
+  { lat: 32.0900, lng: 34.7780 },
+  { lat: 32.0700, lng: 34.7720 },
+  { lat: 32.0550, lng: 34.7660 },
 
-  { lat: 32.0900, lng: 34.7600 },
-  { lat: 32.0700, lng: 34.7580 },
-  { lat: 32.0550, lng: 34.7530 },
-  // Back to start
-  { lat: 32.0402, lng: 34.7506 },
+  { lat: 32.0402, lng: 34.7520 },
 ];
 
 
@@ -52,7 +51,7 @@ function isPointInPolygon(
 
 // generates a random lat/lng point within the defined polygon of Tel Aviv
 export function getRandomTelAvivLocation(): { lat: number; lng: number } {
- 
+
   const latMin = 32.0402;
   const latMax = 32.1200;
   const lngMin = 34.7506;

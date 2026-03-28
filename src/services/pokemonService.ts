@@ -4,7 +4,8 @@ import type {
   PokemonSpecies,
 } from '../types/pokemon';
 
-const BASE_URL = 'https://pokeapi.co/api/v2';
+const { VITE_POKEAPI_BASE_URL } = import.meta.env;
+const BASE_URL = VITE_POKEAPI_BASE_URL;
 
 export async function getPokemonList(
   limit: number = 12,

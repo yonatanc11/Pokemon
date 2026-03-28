@@ -1,25 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './SearchBar.module.scss';
+
 interface SearchBarProps {
-  value: string;
-  onChange: (value: string) => void;
+  onSearch: (value: string) => void;
 }
 
-/**
- * SearchBar - Text input with search button and recent searches dropdown
- * Filtering happens reactively as the user types (handled by parent)
- * The Search button saves the current term to recent searches
- */
-export default function SearchBar({ value, onChange }: SearchBarProps) {
+
+export default function SearchBar({ onSearch }: SearchBarProps) {
+  const [inputValue, setInputValue] = useState('');
+  const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [recentSearches, setRecentSearches] = useState<string[]>([]);
   const [showDropdown, setShowDropdown] = useState(false);
 
-  // Save current search term to recent list (no duplicates, max 5)
+
   const handleSearch = () => {
-    if (value.trim() && !recentSearches.includes(value.trim())) {
-      setRecentSearches((prev) => [value.trim(), ...prev].slice(0, 5));
+    if (debounceTimer.current) clearTimeout(debounceTimer.current);
+
+    onSearch(inputValue);
+
+    if (inputValue.trim() && !recentSearches.includes(inputValue.trim())) {
+      setRecentSearches((prev) => [inputValue.trim(), ...prev].slice(0, 5));
     }
     setShowDropdown(false);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') handleSearch();
   };
 
   // Remove a single item from recent searches
@@ -38,8 +44,9 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
         <input
           className={styles.searchInput}
           type="text"
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          onKeyDown={handleKeyDown}
           onFocus={() => setShowDropdown(true)}
           placeholder="Search pokemon..."
         />
@@ -48,7 +55,6 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
         </button>
       </div>
 
-      {/* Recent searches dropdown */}
       {showDropdown && recentSearches.length > 0 && (
         <div className={styles.dropdown}>
           <div className={styles.dropdownHeader}>
@@ -61,7 +67,11 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
             <div className={styles.dropdownItem} key={search}>
               <span
                 className={styles.dropdownItemText}
-                onClick={() => { onChange(search); setShowDropdown(false); }}
+                onClick={() => {
+                  setInputValue(search);
+                  onSearch(search);
+                  setShowDropdown(false);
+                }}
               >
                 {search}
               </span>
